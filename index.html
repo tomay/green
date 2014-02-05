@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <head>
-<title>Insert data to PostgreSQL with php</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <title>Insert data to PostgreSQL with php</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<style>
-  li {list-style: none;}
-</style>
+  <style>
+    li {list-style: none;}
+  </style>
 </head>
 <body>
-<h2>Enter site information:</h2>
-<ul>
-<form name="insert" action="insert.php" method="POST" >
-<li>Sitename:</li><li><input type="text" name="sitename" /></li>
-<li>Description:</li><li><input type="text" name="description" /></li>
-<li>Site ID:</li><li><input type="number" name="site_id" /></li>
-<li>Visit (boolean):</li><li><input type="text" name="visit" /></li>
-<li>Created Date:</li><li><input type="text" name="created_at" /></li>
-<li>Latitude:</li><li><input type="text" name="latitude" /><li>
-<li>Longitude:</li><li><input type="text" name="longitude" /><li>
-<li><input type="submit" /></li>
-</form>
-</ul>
+  <h2>Enter site information:</h2>
+  <ul>
+  <form name="insert" action="insert.php" method="POST" >
+  <li>Sitename:</li><li><input type="text" name="sitename" /></li>
+  <li>Description:</li><li><input type="text" name="description" /></li>
+  <li>Site ID:</li><li><input type="number" name="site_id" /></li>
+  <li>Visit (boolean):</li><li><input type="text" name="visit" /></li>
+  <li>Created Date:</li><li><input type="text" name="created_at" /></li>
+  <li>Latitude:</li><li><input type="text" name="latitude" /><li>
+  <li>Longitude:</li><li><input type="text" name="longitude" /><li>
+  <li><input type="submit" /></li>
+  </form>
+  </ul>
 
-<h2>Search:</h2>
+  <h2>Search:</h2>
 
-<form name="search" method="post" action="search.php">
-Search for: <input type="text" name="find" /> 
-<select id="itemType_id" name="fields">
-  <option value="sitename" selected="selected">Sitename</option>
-  <option value="description">Description</option>
-  <option value="site_id">Site ID</option>
-  <option value="visit">Visit</option>
-</select>
-<input type="hidden" name="dafield" id="field_hidden" value="sitename">
+  <form name="search" method="post" action="search.php">
+  Search for: <input type="text" name="find" />
+  <select id="select_id" name="fields">
+    <option value="sitename" selected="selected">Sitename</option>
+    <option value="description">Description</option>
+    <option value="site_id">Site ID</option>
+    <option value="visit">Visit</option>
+  </select>
+  <input type="hidden" name="queryfield" id="field_hidden" value="sitename">
 
-<input type="submit" name="search" value="Search" />
-</form>
+  <input type="submit" name="search" value="Search" />
+  </form>
 
-<script>
-  $(document).ready(function() {
-    $("#itemType_id").change(function(){
-      $("#field_hidden").val($("#itemType_id").find(":selected").text());
-      console.log($("#field_hidden").val())
+  <script>
+    $(document).ready(function() {
+      $("#select_id").change(function(){
+        $("#field_hidden").val($("#select_id").find(":selected").text());
+        console.log($("#field_hidden").val())
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
